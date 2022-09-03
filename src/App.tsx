@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { IBook } from './models/books';
 import * as booksService from "./services/books.service";
+import Layout from './components/layout/Layout';
 
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
   const LibraryPage = React.lazy(() => import("./components/pages/library-page/library-page"));
   const SearchPage = React.lazy(() => import("./components/pages/search-page/search-page"));
   const DetailsPage = React.lazy(() => import("./components/pages/details-page/details-page"));
+  const LoginPage = React.lazy(() => import("./components/auth/login"));
+
   const NotFoundPage = React.lazy(() => import("./components/pages/not-found-page/not-found-page"));
 
   //to be replaced with redux 
@@ -29,19 +32,18 @@ function App() {
   //to be replaced with redux 
 
   return (
-    <div>
+    <Layout>
       <Suspense fallback={<span>Loading ...</span>}>
-        <Router>
           <Routes>
             <Route path="/" element={<LibraryPage books={books} addBook={addBook} />}></Route>
             <Route path="/search" element={<SearchPage></SearchPage>}></Route>
             <Route path="/details" element={<DetailsPage></DetailsPage>}></Route>
-            <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
+            <Route path="/login" element={<LoginPage></LoginPage>}></Route>
 
+            <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
           </Routes>
-        </Router>
       </Suspense>
-    </div>
+    </Layout>
   );
 }
 

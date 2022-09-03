@@ -15,6 +15,7 @@ function LibraryPage({ books, addBook }: ILibProps) {
                     <BookShelf shelfTitle={BookShelfTypes[key as keyof typeof BookShelfTypes]}
                         books={books.filter((book) => book.shelf === key)}
                         addBook={addBook}
+                        key={key}
                     />
                 ))}
 
