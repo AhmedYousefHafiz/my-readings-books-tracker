@@ -36,7 +36,7 @@ function App() {
       <Suspense fallback={<span>Loading ...</span>}>
           <Routes>
             <Route path="/" element={<LibraryPage books={books} addBook={addBook} />}></Route>
-            <Route path="/search" element={<SearchPage></SearchPage>}></Route>
+            <Route path="/search" element={<SearchPage books={books} addBook={addBook}></SearchPage>}></Route>
             <Route path="/details" element={<DetailsPage></DetailsPage>}></Route>
             <Route path="/login" element={<LoginPage></LoginPage>}></Route>
 
