@@ -22,16 +22,18 @@ function SearchPage({ books, addBook }: ILibProps) {
             setSearchedBooks([]);
         }
     }, [query]);
-    function handleSearch(event: IEventModel) {
+
+    const handleSearch = (event: IEventModel) => {
         setQuery(event.target.value);
-    }
-    const debouncedHandleSearch = useMemo(() => debounce(handleSearch, 400), []);
+    };
+
+    const onSearchTextChanged = useMemo(() => debounce(handleSearch, 500), []);
 
     useEffect(() => {
         return () => {
-            debouncedHandleSearch.cancel();
+            onSearchTextChanged.cancel();
         };
-    }, [debouncedHandleSearch]);
+    }, [onSearchTextChanged]);
 
     return (
         <div className={classes["search-books"]}>
@@ -41,9 +43,10 @@ function SearchPage({ books, addBook }: ILibProps) {
                 </Link>
                 <div className={classes["search-books-input-wrapper"]}>
                     <input
-                        onChange={debouncedHandleSearch}
+                        onChange={onSearchTextChanged}
                         type="text"
                         placeholder="Search by title, author, or ISBN"
+                        aria-label="Search Input"
                     />
                 </div>
             </div>
