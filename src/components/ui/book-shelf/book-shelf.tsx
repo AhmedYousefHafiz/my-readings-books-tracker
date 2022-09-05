@@ -1,5 +1,5 @@
 import { camelCase } from "lodash";
-import { IShelfProps } from "../../../models/shelfProps";
+import { IShelfProps } from "../../../models/props";
 import Book from "../book/book";
 import classes from "./book-shelf.module.css";
 import * as BookService from "../../../services/books.service";

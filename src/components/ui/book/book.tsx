@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IBookProps } from "../../../models/bookProps";
+import { IBookProps } from "../../../models/props";
 import classes from "./book.module.css";
 import * as BookService from "../../../services/books.service";
 

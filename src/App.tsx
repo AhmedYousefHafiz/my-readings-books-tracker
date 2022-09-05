@@ -32,7 +32,6 @@ function App() {
   //to be replaced with redux 
 
   return (
-    <Layout>
       <Suspense fallback={<span>Loading ...</span>}>
           <Routes>
             <Route path="/" element={<LibraryPage books={books} addBook={addBook} />}></Route>
@@ -43,7 +42,6 @@ function App() {
             <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
           </Routes>
       </Suspense>
-    </Layout>
   );
 }
 

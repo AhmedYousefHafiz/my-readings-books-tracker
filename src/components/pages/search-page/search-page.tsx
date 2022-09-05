@@ -7,24 +7,17 @@ import debounce from "lodash.debounce";
 import { IBook } from '../../../models/books';
 import Book from '../../ui/book/book';
 import { IEventModel } from '../../../models/eventModel';
+import { ILibProps } from '../../../models/props';
+import { SearchConfig } from '../../../config/search.config';
 
-
-type IProps = {
-    books: IBook[];
-    addBook: Function;
-}
-
-
-
-function SearchPage({ books, addBook }: IProps) {
+function SearchPage({ books, addBook }: ILibProps) {
     const [query, setQuery] = useState("");
     const [searchedBooks, setSearchedBooks] = useState([]);
 
     useEffect(() => {
         if (query !== "") {
-            BooksService.search(query, 10).then((books) =>
-                !books.error ? setSearchedBooks(books) : setSearchedBooks([]))
-
+            BooksService.search(query, SearchConfig.maxSearchResult)
+                .then((books) => !books.error ? setSearchedBooks(books) : setSearchedBooks([]))
         } else {
             setSearchedBooks([]);
         }

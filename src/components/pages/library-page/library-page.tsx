@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { BookShelfTypes } from "../../../enum/book-shelf-types.enum";
-import { ILibProps } from "../../../models/shelfProps";
+import { ILibProps } from "../../../models/props";
 import BookShelf from "../../ui/book-shelf/book-shelf";
 import classes from "./library-page.module.css";
 
