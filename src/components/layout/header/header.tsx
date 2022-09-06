@@ -1,18 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import classes from './header.module.css';
+import classes from "./header.module.css";
 
 const Header = () => {
   return (
-    
     <header className={classes.header}>
-      <Link to='/'>
+      <Link to="/">
         <div className={classes.logo}>My Readings Books Tracker</div>
       </Link>
       <nav>
         <ul>
           <li>
-            <Link to='/login'>Login</Link>
+            <button>Login</button>
           </li>
           <li>
             <button>Logout</button>

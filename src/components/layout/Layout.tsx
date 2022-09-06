@@ -1,8 +1,7 @@
-import { Fragment } from 'react';
+import { FC, Fragment } from "react";
+import Header from "./header/header";
 
-import Header from './header/header';
-
-const Layout = (props) => {
+const Layout: FC<any> = (props) => {
   return (
     <Fragment>
       <Header />
