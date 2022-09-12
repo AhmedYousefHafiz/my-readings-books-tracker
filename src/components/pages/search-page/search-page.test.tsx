@@ -28,7 +28,7 @@ describe("SearchPage Component Test", () => {
     });
   });
   test("Check when search input changed", () => {
-    render(<SearchPage books={bookData} addBook={() => {}} />, {
+    render(<SearchPage />, {
       wrapper: BrowserRouter,
     });
     const searchElement = screen.getByLabelText("Search Input", {
@@ -38,7 +38,7 @@ describe("SearchPage Component Test", () => {
     expect(searchElement.value).toBe("Test Data");
   });
   test("Check when search input changed and trigger getting data", async () => {
-    render(<SearchPage books={bookData} addBook={() => {}} />, {
+    render(<SearchPage />, {
       wrapper: BrowserRouter,
     });
     const searchElement = screen.getByLabelText("Search Input", {
@@ -51,7 +51,7 @@ describe("SearchPage Component Test", () => {
     expect(noBooksFoundDiv).not.toBeInTheDocument();
   });
   test("Check when search input is empty", async () => {
-    render(<SearchPage books={bookData} addBook={() => {}} />, {
+    render(<SearchPage/>, {
       wrapper: BrowserRouter,
     });
     const searchElement = screen.getByLabelText("Search Input", {

@@ -14,7 +14,7 @@ const bookData = {
 describe("Book Component Test", () => {
   test("test rendering book title", () => {
    
-    render(<Book book={bookData} addBook={() => {}} />, {
+    render(<Book book={bookData}/>, {
       wrapper: BrowserRouter,
     });
     const renderedElement = screen.queryByText("test title", { exact: false });

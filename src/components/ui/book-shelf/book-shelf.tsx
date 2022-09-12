@@ -3,15 +3,18 @@ import { IShelfProps } from "../../../models/props";
 import Book from "../book/book";
 import classes from "./book-shelf.module.css";
 import * as BookService from "../../../services/books.service";
+import { useAppDispatch } from "../../../store/hooks";
+import { booksActions } from "../../../store/books-slice";
 
 function BookShelf({books,shelfTitle,addBook}: IShelfProps) {
+    const dispatch = useAppDispatch();
     function handleDrop(event: any) {
         let draggedBook = JSON.parse(event.dataTransfer.getData("book"));
         let shelfName = camelCase(shelfTitle);
         if (!(draggedBook.shelf === shelfName)) {
             draggedBook.shelf = shelfName;
             BookService.update(draggedBook, shelfName);
-            addBook(draggedBook);
+            dispatch(booksActions.addBook(draggedBook));
         }
     }
     return (
@@ -21,7 +24,7 @@ function BookShelf({books,shelfTitle,addBook}: IShelfProps) {
                 <ol className="books-grid">
                     {
                         books.map((book) => (
-                            <Book key={book.id} book={book} addBook={addBook} />
+                            <Book key={book.id} book={book} />
                         ))}
 
                 </ol>

@@ -1,19 +1,21 @@
-import { useState, useRef } from "react";
-
+import React from "react";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
 import classes from "./login.module.css";
 
 const LoginForm = () => {
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
+  const loginDispatch = useDispatch();
+  const emailInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const passwordInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  const [isLogin, setIsLogin] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     const enteredEmail = emailInputRef.current.value;

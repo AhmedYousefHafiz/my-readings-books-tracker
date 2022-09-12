@@ -6,13 +6,17 @@ import { BookShelfTypes } from "../../../config/library.config";
 import { FC, Fragment } from "react";
 import DetailsPage from "../../pages/details-page/details-page";
 import DropList from "../drop-list/drop-list";
+import { IBook } from "../../../models/books";
+import { useAppDispatch } from "../../../store/hooks";
+import { booksActions } from "../../../store/books-slice";
 
-const Book: FC<IBookProps> = ({ book, addBook }) => {
+const Book: FC<{book:IBook}> = ({book}) => {
+  const dispatch = useAppDispatch();
   function changeShelf(event: any) {
     let shelf = event.target.value;
     BookService.update(book, shelf);
     book.shelf = shelf;
-    addBook(book);
+      dispatch(booksActions.addBook(book));
   }
   function handleDragStart(event: any) {
     event.dataTransfer.setData("book", JSON.stringify(book));
@@ -48,7 +52,7 @@ const Book: FC<IBookProps> = ({ book, addBook }) => {
       <Routes>
         <Route
           path="/details"
-          element={<DetailsPage book={book} addBook={addBook}></DetailsPage>}
+          element={<DetailsPage book={book}></DetailsPage>}
         ></Route>
       </Routes>
     </Fragment>

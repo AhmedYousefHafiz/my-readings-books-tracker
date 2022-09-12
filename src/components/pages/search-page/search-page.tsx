@@ -9,8 +9,11 @@ import Book from "../../ui/book/book";
 import { IEventModel } from "../../../models/eventModel";
 import { ILibProps } from "../../../models/props";
 import { SearchConfig } from "../../../config/search.config";
+import { useAppSelector } from "../../../store/hooks";
 
-const SearchPage: FC<ILibProps> = ({ books, addBook }) => {
+const SearchPage = () => {
+
+  const books = useAppSelector(state=> state.bookStore.books);
   const [query, setQuery] = useState("");
   const [searchedBooks, setSearchedBooks] = useState([]);
 
@@ -61,9 +64,9 @@ const SearchPage: FC<ILibProps> = ({ books, addBook }) => {
                   (existedBook) => existedBook.id === book.id
                 );
                 return existedBook ? (
-                  <Book key={book.id} book={existedBook} addBook={addBook} />
+                  <Book key={book.id} book={existedBook} />
                 ) : (
-                  <Book key={book.id} book={book} addBook={addBook} />
+                  <Book key={book.id} book={book} />
                 );
               })
           ) : !query ? (

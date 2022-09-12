@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { IBookProps } from "../../../models/props";
+import { IBook } from "../../../models/books";
 
-const DetailsPage:FC<IBookProps> = ({book,addBook}) => {
+const DetailsPage:FC<{book:IBook}> = ({book}) => {
     return (<h1>DetailsPage</h1>);
 };
 

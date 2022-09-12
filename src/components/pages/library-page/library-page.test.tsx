@@ -12,7 +12,7 @@ describe("LibraryPage Component Test", () => {
         imageLinks: { smallThumbnail: "test path", thumbnail: "Test path" },
       },
     ];
-    render(<LibraryPage books={bookData} addBook={() => {}} />, {
+    render(<LibraryPage />, {
       wrapper: BrowserRouter,
     });
     const renderElement = await screen.getByRole("listitem", { exact: false });
