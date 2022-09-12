@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { IBook } from "./models/books";
@@ -33,11 +32,8 @@ function App() {
   };
   useEffect(() => {
     booksService.getAll().then((data) => {
-      const convertedBooks:IBook[] = data;
-      console.log(`Getting Books State => ${convertedBooks}`);
-
-     dispatch(booksActions.appendBooks(convertedBooks));
-      console.log(`New Books State => ${books}`);
+      const convertedBooks: IBook[] = data;
+      dispatch(booksActions.appendBooks(convertedBooks));
     });
   }, []);
   //to be replaced with redux
@@ -46,14 +42,8 @@ function App() {
     <Layout>
       <Suspense fallback={<span>Loading ...</span>}>
         <Routes>
-          <Route
-            path="/"
-            element={<LibraryPage />}
-          ></Route>
-          <Route
-            path="/search"
-            element={<SearchPage></SearchPage>}
-          ></Route>
+          <Route path="/" element={<LibraryPage />}></Route>
+          <Route path="/search" element={<SearchPage></SearchPage>}></Route>
           <Route path="/login" element={<LoginPage></LoginPage>}></Route>
 
           <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>

@@ -25,7 +25,6 @@ const LibraryPage = () => {
           <BookShelf
             shelfTitle={shelfInfo.title}
             books={books.filter((book) => book.shelf === shelfInfo.value)}
-            addBook={addBook}
             key={shelfInfo.value}
           />
         ))}

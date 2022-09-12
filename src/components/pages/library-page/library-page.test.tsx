@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import store from "../../../store";
+import { booksActions } from "../../../store/books-slice";
+import { renderWithContext } from "../../../utils/test-utils";
 import LibraryPage from "./library-page";
 describe("LibraryPage Component Test", () => {
   test("test rendering books", async () => {
@@ -12,9 +15,8 @@ describe("LibraryPage Component Test", () => {
         imageLinks: { smallThumbnail: "test path", thumbnail: "Test path" },
       },
     ];
-    render(<LibraryPage />, {
-      wrapper: BrowserRouter,
-    });
+
+    renderWithContext(<LibraryPage />);
     const renderElement = await screen.getByRole("listitem", { exact: false });
     expect(renderElement).toBeInTheDocument();
   });

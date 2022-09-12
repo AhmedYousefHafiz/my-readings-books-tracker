@@ -18,9 +18,8 @@ const booksSlice = createSlice({
         action.payload,
       ];
     },
-    appendBooks(state,action){
-        console.log("Books_Payload =>" + Object.values(action.payload));
-        state.books = action.payload;
+    appendBooks(state, action) {
+      state.books = action.payload;
     },
   },
 });

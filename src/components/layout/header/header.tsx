@@ -1,15 +1,11 @@
 import { Link } from "react-router-dom";
-
 import classes from "./header.module.css";
-import { useAppSelector,useAppDispatch } from "../../../store/hooks";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
 import { authActions } from "../../../store/auth-slice";
 
 const Header = () => {
   const authDispatch = useAppDispatch();
-  const isLoggedIn = useAppSelector(state => state.authStore.isLoggedIn);
-
-  console.log("isLoggedIn:" + isLoggedIn);
-
+  const isLoggedIn = useAppSelector((state) => state.authStore.isLoggedIn);
   const logoutHandler = () => {
     authDispatch(authActions.toggleAuth());
   };
@@ -19,11 +15,17 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <Link to="/">
-        <div className={classes.logo}>My Readings Books Tracker</div>
+        <div
+          className={
+            !isLoggedIn ? classes.logo : `${classes.logo} ${classes.active}`
+          }
+        >
+          My Readings Books Tracker
+        </div>
       </Link>
       <nav>
         <ul>
-          {isLoggedIn && (
+          {!isLoggedIn && (
             <li>
               <button onClick={loginHandler}>Login</button>
             </li>
@@ -31,7 +33,7 @@ const Header = () => {
             //   <Link to="/auth">Login</Link>
             // </li>
           )}
-          {!isLoggedIn && (
+          {isLoggedIn && (
             <li>
               <button onClick={logoutHandler}>Logout</button>
             </li>

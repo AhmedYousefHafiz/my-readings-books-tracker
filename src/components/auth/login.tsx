@@ -1,10 +1,11 @@
 import React from "react";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../store/hooks";
 import classes from "./login.module.css";
 
 const LoginForm = () => {
-  const loginDispatch = useDispatch();
+  const loginDispatch = useAppDispatch();
   const emailInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const passwordInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 

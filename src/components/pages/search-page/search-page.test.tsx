@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import * as BooksService from "../../../services/books.service";
+import { renderWithContext } from "../../../utils/test-utils";
 import SearchPage from "./search-page";
 const bookData = [
   {
@@ -28,9 +28,7 @@ describe("SearchPage Component Test", () => {
     });
   });
   test("Check when search input changed", () => {
-    render(<SearchPage />, {
-      wrapper: BrowserRouter,
-    });
+    renderWithContext(<SearchPage />);
     const searchElement = screen.getByLabelText("Search Input", {
       exact: false,
     }) as HTMLInputElement;
@@ -38,9 +36,7 @@ describe("SearchPage Component Test", () => {
     expect(searchElement.value).toBe("Test Data");
   });
   test("Check when search input changed and trigger getting data", async () => {
-    render(<SearchPage />, {
-      wrapper: BrowserRouter,
-    });
+    renderWithContext(<SearchPage />);
     const searchElement = screen.getByLabelText("Search Input", {
       exact: false,
     }) as HTMLInputElement;
@@ -51,9 +47,7 @@ describe("SearchPage Component Test", () => {
     expect(noBooksFoundDiv).not.toBeInTheDocument();
   });
   test("Check when search input is empty", async () => {
-    render(<SearchPage/>, {
-      wrapper: BrowserRouter,
-    });
+    renderWithContext(<SearchPage />);
     const searchElement = screen.getByLabelText("Search Input", {
       exact: false,
     }) as HTMLInputElement;

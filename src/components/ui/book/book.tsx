@@ -1,5 +1,4 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { IBookProps } from "../../../models/props";
 import classes from "./book.module.css";
 import * as BookService from "../../../services/books.service";
 import { BookShelfTypes } from "../../../config/library.config";
@@ -9,14 +8,18 @@ import DropList from "../drop-list/drop-list";
 import { IBook } from "../../../models/books";
 import { useAppDispatch } from "../../../store/hooks";
 import { booksActions } from "../../../store/books-slice";
+import { camelCase } from "lodash";
 
-const Book: FC<{book:IBook}> = ({book}) => {
+const Book: FC<{ book: IBook }> = ({ book }) => {
   const dispatch = useAppDispatch();
   function changeShelf(event: any) {
     let shelf = event.target.value;
-    BookService.update(book, shelf);
-    book.shelf = shelf;
-      dispatch(booksActions.addBook(book));
+    let shelfName = camelCase(shelf);
+    if (!(book.shelf === shelfName)) {
+     const updatedBook={ ...book,shelf:shelfName};
+      BookService.update(updatedBook, shelfName);
+      dispatch(booksActions.addBook(updatedBook));
+    }
   }
   function handleDragStart(event: any) {
     event.dataTransfer.setData("book", JSON.stringify(book));

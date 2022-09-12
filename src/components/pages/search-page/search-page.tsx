@@ -12,8 +12,7 @@ import { SearchConfig } from "../../../config/search.config";
 import { useAppSelector } from "../../../store/hooks";
 
 const SearchPage = () => {
-
-  const books = useAppSelector(state=> state.bookStore.books);
+  const books = useAppSelector((state: any) => state.bookStore.books);
   const [query, setQuery] = useState("");
   const [searchedBooks, setSearchedBooks] = useState([]);
 
@@ -61,7 +60,7 @@ const SearchPage = () => {
               .filter((book: IBook) => book?.imageLinks?.smallThumbnail)
               .map((book: IBook) => {
                 let existedBook = books.find(
-                  (existedBook) => existedBook.id === book.id
+                  (existedBook: IBook) => existedBook.id === book.id
                 );
                 return existedBook ? (
                   <Book key={book.id} book={existedBook} />
