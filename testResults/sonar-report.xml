@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unitTest version="1">
+    <file path="C:\Workshop\MyRepo\my-readings-books-tracker\src\components\ui\drop-list\drop-list.test.tsx">
+        <testCase name="DropList Component Test test rendering list" duration="30"/>
+    </file>
+    <file path="C:\Workshop\MyRepo\my-readings-books-tracker\src\components\layout\header\header.test.tsx">
+        <testCase name="---Test Header Component-- Test if header title is shown" duration="51"/>
+        <testCase name="---Test Header Component-- Test if Logout link is shown" duration="5"/>
+    </file>
+    <file path="C:\Workshop\MyRepo\my-readings-books-tracker\src\components\pages\search-page\search-page.test.tsx">
+        <testCase name="SearchPage Component Test Check when search input changed" duration="47"/>
+        <testCase name="SearchPage Component Test Check when search input changed and trigger getting data" duration="15"/>
+        <testCase name="SearchPage Component Test Check when search input is empty" duration="10"/>
+    </file>
+    <file path="C:\Workshop\MyRepo\my-readings-books-tracker\src\components\ui\book\book.test.tsx">
+        <testCase name="Book Component Test test rendering book title" duration="75"/>
+    </file>
+    <file path="C:\Workshop\MyRepo\my-readings-books-tracker\src\components\ui\book-shelf\book-shelf.test.tsx">
+        <testCase name="BookShelf Component Test test rendering books" duration="79"/>
+    </file>
+    <file path="C:\Workshop\MyRepo\my-readings-books-tracker\src\components\pages\library-page\library-page.test.tsx">
+        <testCase name="LibraryPage Component Test test rendering books" duration="133"/>
+    </file>
+</unitTest>
