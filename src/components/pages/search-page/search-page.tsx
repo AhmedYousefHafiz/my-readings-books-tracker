@@ -8,7 +8,7 @@ import { IBook } from "../../../models/books";
 import Book from "../../ui/book/book";
 import { IEventModel } from "../../../models/eventModel";
 import { ILibProps } from "../../../models/props";
-import { SearchConfig } from "../../../config/search.config";
+import { SearchConfig } from "../../../config/search-config";
 import { useAppSelector } from "../../../store/hooks";
 
 const SearchPage = () => {

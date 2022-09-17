@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { BookShelfTypes } from "../../../config/library.config";
+import { BookShelfTypes } from "../../../config/library-config";
 import DropList from "./drop-list";
 
 describe("DropList Component Test", () => {

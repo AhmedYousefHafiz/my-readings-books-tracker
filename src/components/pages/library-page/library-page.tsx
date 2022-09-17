@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { BookShelfTypes, LibraryInfo } from "../../../config/library.config";
+import { BookShelfTypes, LibraryInfo } from "../../../config/library-config";
 import { IBook } from "../../../models/books";
 import { ILibProps } from "../../../models/props";
 import { booksActions } from "../../../store/books-slice";

@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import classes from "./book.module.css";
 import * as BookService from "../../../services/books.service";
-import { BookShelfTypes } from "../../../config/library.config";
+import { BookShelfTypes } from "../../../config/library-config";
 import { FC, Fragment } from "react";
 import DetailsPage from "../../pages/details-page/details-page";
 import DropList from "../drop-list/drop-list";
